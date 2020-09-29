@@ -3715,34 +3715,48 @@ footer {
   padding-top:50px;
 }
 
-#shopify-section-1601365895448{
+#shopify-section-1601365895448 {
   background-color: #ffff;
   margin: 0 auto;
-  .page_width{
+  .page_width {
     display:flex;
     padding:20px;
     max-width: 1180px;
     margin: 0 auto;
-    .reviews_section{
+    .reviews_section {
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       max-width: 33%;
       background-color: #ffffff;
-      .reviews_section_content{
+      .reviews_section_content {
+        position: relative;
         background-color: #f2f2f2;
         border-radius: 20px;
+        margin-bottom:20px;
+        p {
+          padding:15px;
+        }
+        &::after {
+          content: '';
+            position: absolute;
+            left: 55px;
+            bottom: -32px;
+            border: 15px solid transparent;
+            border-top: 20px solid #f2f2f2;
+            z-index: 10;
+        }
       }
-      .reviews_section_customers_information{
+      .reviews_section_customers_information {
         position: relative;
         border-radius: 50%;
-        width: 50%;
-        img{
+        width: 40%;
+        img {
           border-radius: 50%;
         }
-        p{
+        p {
           position: absolute;
-          top: 50%;
+          top: 40%;
           right: -75px;
         }
       }
