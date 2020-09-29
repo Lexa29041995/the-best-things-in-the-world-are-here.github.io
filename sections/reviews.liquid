@@ -1,0 +1,67 @@
+<div class="page_width">
+    <div class="reviews_section">
+        <div class="reviews_section_content">
+            <h5>
+                {{section.settings.customers_review}}
+            </h5>
+        </div>
+        <div class="reviews_section_customers_information">
+            <img src="{{section.settings.user_img | img_url: '300x300'}}">
+            <p>{{section.settings.customers_name}}</p>
+        </div>
+    </div>
+    <div class="reviews_section">
+        <div class="reviews_section_content">
+            <h5>
+                {{section.settings.customers_review}}
+            </h5>
+        </div>
+        <div class="reviews_section_customers_information">
+            <img src="{{section.settings.user_img | img_url: '300x300'}}">
+            <p>{{section.settings.customers_name}}</p>
+        </div>
+    </div>
+    <div class="reviews_section">
+        <div class="reviews_section_content">
+            <h5>
+                {{section.settings.customers_review}}
+            </h5>
+        </div>
+        <div class="reviews_section_customers_information">
+            <img src="{{section.settings.user_img | img_url: '300x300'}}">
+            <p>{{section.settings.customers_name}}</p>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name": "Reviews",
+
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "customers_review",
+        "label": "Customers Review"
+      },
+      {
+        "type": "image_picker",
+        "id": "user_img",
+        "label": "Customers Photo"
+      },
+      {
+        "type": "text",
+        "id": "customers_name",
+        "label": "Customers Name"
+      } 
+    ],
+    
+    "presets": [
+      {
+        "category": "Reviews",
+        "name": "Customer's reviews"
+      }
+    ]
+  }
+{% endschema %}

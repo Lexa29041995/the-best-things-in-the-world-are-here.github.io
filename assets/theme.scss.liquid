@@ -3700,6 +3700,11 @@ html {
     padding-bottom: $gutter-site * 2;
   }
 }
+
+#shopify-section-featured-collections .featured-card__image-wrapper img{
+  // height: 200px;
+}
+
 footer {
   .flex__item:last-child {
   display: none;
@@ -3708,6 +3713,40 @@ footer {
     text-align:center;
   }
   padding-top:50px;
+}
+
+#shopify-section-1601365895448{
+  background-color: #ffff;
+  margin: 0 auto;
+  .page_width{
+    padding: 0 20px;
+    max-width: 1180px;
+    margin: 0 auto;
+    .reviews_section{
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      max-width: 33%;
+      background-color: #ffffff;
+      .reviews_section_content{
+        background-color: #f2f2f2;
+        border-radius: 20px;
+      }
+      .reviews_section_customers_information{
+        position: relative;
+        border-radius: 50%;
+        width: 50%;
+        img{
+          border-radius: 50%;
+        }
+        p{
+          position: absolute;
+          top: 50%;
+          right: -75px;
+        }
+      }
+    }
+  }
 }
 
 .site-footer__copyright {
