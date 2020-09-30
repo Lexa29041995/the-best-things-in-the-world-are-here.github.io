@@ -37,7 +37,7 @@
                 <div class="hero__image hero__image--{{ block.id }}"{% if block.settings.image %} style="background-image: url('{{ block.settings.image | img_url: '2048x' }}');"{% endif %}></div>
               </noscript>
               {% assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-              <img class="hero__image hero__image--{{ block.id }} lazyload {% unless forloop.first == true %} lazypreload{% endunless %}"
+              <a href="http://google.com"><img class="hero__image hero__image--{{ block.id }} lazyload {% unless forloop.first == true %} lazypreload{% endunless %}"
                 {% if forloop.first == true %}
                   src="{{ block.settings.image | img_url: '300x' }}"
                 {% endif %}
@@ -47,7 +47,7 @@
                 data-sizes="auto"
                 data-parent-fit="cover"
                 alt="{{ block.settings.image.alt | escape }}"
-                style="object-position: {{ block.settings.image_position }}">
+                style="object-position: {{ block.settings.image_position }}"></a>
             {%- else -%}
               {%- if block.settings.image == blank -%}
                 <div class="placeholder-background">
