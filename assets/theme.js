@@ -3934,13 +3934,15 @@ $(theme.init);
 $(document).ready(function(){
   $('.collection-slider').each(function(){
     let num_slides = 2;
-    if(window.innerWidth >= 750){
-      num_slides = $(this).data('slides');
+    if(window.innerWidth >= 750){ 
+      num_slides = $(this).data('slides');  
     }
     if(window.innerWidth <= 600) {
       num_slides = 1;
     }
-    $(this).slick({slidesToShow:num_slides});
-    
+
+    $(this).slick({slidesToShow:num_slides,
+                  autoplay:true,
+                  autoplaySpeed: 10000,});
   })
 })
