@@ -36,6 +36,9 @@
                   data-sizes="auto"
                   alt="{{ image.alt | escape }}">
               </a>
+              <div class="product-new">
+                NEW
+              </div>
             </div>
           {%- endfor -%}
           <noscript>
@@ -52,6 +55,7 @@
                   <a href="{{ image.src | img_url: product_image_size }}" data-zoom="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail product-single__thumbnail-{{ section.id }}">
                     <img src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
                   </a>
+                  
                 </div>
               {% endfor %}
             </div>
