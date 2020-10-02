@@ -12,6 +12,8 @@
   {% endif %}
 
   <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="stylesheet" type="text/css" href="../slick/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="../slick/slick/slick-theme.css"/>
   <title>
   {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
   </title>
@@ -47,7 +49,6 @@
       slideNumber: {{ 'homepage.hero.slide_number' | t: slide_number: '[slide_number]' | json }}
     };
   </script>
-
   <script src="{{ 'lazysizes.min.js' | asset_url }}" async="async"></script>
 
   {% if request.page_type contains 'customers/' %}
@@ -117,5 +118,8 @@
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
     <li id="a11y-slideshow-info">{{- 'homepage.hero.navigation_instructions' | t -}}</li>
   </ul>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="../slick/slick/slick.min.js"></script>
 </body>
 </html>
