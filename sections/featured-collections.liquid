@@ -51,6 +51,13 @@
 </div>
 <div class="elfsight-app-6312f422-54bb-4f1d-80fc-ad3f8f6a6a1a"></div>
 
+<div class="sorting-products">
+  {% assign products = collection.products | sort: 'title' %}
+  {% for product in products %}
+    {{ product.title }}
+  {% endfor %}
+</div>
+
 
 
 {% schema %}

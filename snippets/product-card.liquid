@@ -33,12 +33,13 @@
     </div>
   </div>
   <div class="product-card__info">
+    {% if product.tags contains 'new' %}
+      <div class="product-badge new"><span>New</span></div>
+    {% endif %}
     {% if settings.product_vendor_enable %}
       <div class="product-card__brand">{{ product.vendor }}</div>
     {% endif %}
-
     <div class="product-card__name">{{ product.title }}</div>
-
     {% if product.available %}
       <div class="product-card__price">
         {% if product.compare_at_price > product.price %}

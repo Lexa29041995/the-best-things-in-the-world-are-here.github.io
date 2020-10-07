@@ -3946,3 +3946,61 @@ $(document).ready(function(){
                   autoplaySpeed: 10000,});
   })
 })
+
+
+
+$(document).ready(function(){
+  $('.product-new').on('click', function(){
+    $(this).toggleClass('active')
+    console.log("fsdfsdfsdfsdf")
+  })
+})
+
+let isMobile = {
+    Android: function () {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function () {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function () {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function () {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function () {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function () {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
+let body = document.querySelector('body');
+
+if (isMobile.any()) {
+    body.classList.add('touch');
+    let arrow = document.querySelectorAll('.arrow');
+    for (i = 0; i < arrow.length; i++) {
+        let thisLink = arrow[i].previousElementSibling;
+        let subMenu = arrow[i].nextElementSibling;
+        let thisArrow = arrow[i];
+        thisLink.classList.add('parent');
+        arrow[i].addEventListener('click', function () {
+            subMenu.classList.toggle('open');
+            thisArrow.classList.toggle('active');
+            subMenu.scrollIntoView();
+        })
+    }
+} else {
+    body.classList.add('mouse');
+}
+
+let menuBurger = document.querySelector('.menuBurger');
+menuBurger.addEventListener('click', function () {
+    let menu = document.querySelector('.menu');
+    let body = document.querySelector('body');
+    body.classList.toggle('lock');
+    menuBurger.classList.toggle('active');
+    menu.classList.toggle('active');
+})

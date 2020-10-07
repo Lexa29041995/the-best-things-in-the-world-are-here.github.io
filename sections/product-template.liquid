@@ -36,9 +36,15 @@
                   data-sizes="auto"
                   alt="{{ image.alt | escape }}">
               </a>
-              <div class="product-new">
-                NEW
-              </div>
+              {% if product.tags contains 'new' %}
+                <div class="product-badge new"><span>New</span></div>
+              {% endif %}
+              <!-- <div class="sorting-products">
+                {% assign products = collection.products | sort: 'title' %}
+                {% for product in products %}
+                  {{ product.title }}
+                {% endfor %}
+              </div> -->
             </div>
           {%- endfor -%}
           <noscript>
@@ -99,6 +105,11 @@
                 {{ 'products.product.on_sale' | t }}
               </div>
             </li>
+            <!-- <li>
+              {% if product.tags contains 'new' %}
+                <div class="product-badge new"><span>New</span></div>
+              {% endif %}
+            </li> -->
             <li>
               {% unless product.compare_at_price_max > product.price %}
                 <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
