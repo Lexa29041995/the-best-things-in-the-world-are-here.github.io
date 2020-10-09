@@ -84,7 +84,7 @@
 <header class="site-header page-element is-moved-by-drawer" role="banner" data-section-id="{{ section.id }}" data-section-type="header">
   <div class="site-header__upper page-width">
     <div class="grid grid--table">
-      <div class="grid__item small--one-quarter medium-up--hide">
+      <!-- <div class="grid__item small--one-quarter medium-up--hide">
         <button type="button" class="text-link site-header__link js-drawer-open-left">
           <span class="site-header__menu-toggle--open">
             {% include 'icon-hamburger' %}
@@ -94,7 +94,7 @@
           </span>
           <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
         </button>
-      </div>
+      </div> -->
       <div class="grid__item small--one-half medium-up--two-thirds small--text-center">
         {% if request.page_type == 'index' %}
           <h1 class="site-header__logo" itemscope itemtype="http://schema.org/Organization">
@@ -143,7 +143,7 @@
     </div>
   </div>
 
-  <div id="StickNavWrapper">
+  <!-- <div id="StickNavWrapper">
     <div id="StickyBar" class="sticky">
       <nav class="nav-bar small--hide" role="navigation" id="StickyNav">
         <div class="page-width">
@@ -238,7 +238,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   {% if section.settings.promo_bar_enable and section.settings.promo_bar_text != blank %}
     <div id="NotificationPromo" class="notification notification--promo" data-text="{{ section.settings.promo_bar_text | strip_html | handle }}">

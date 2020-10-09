@@ -4414,6 +4414,7 @@ footer {
   display: block;
   position: absolute;
   top: 0;
+  right: 0;
 }
 
 /*============================================================================
@@ -7008,7 +7009,7 @@ body {
 }
 
 .header {
-    position: absolute;
+    position: relative;
     width: 100%;
     top: 0;
     left: 0;
@@ -7250,7 +7251,7 @@ body.touch .arrow {
     }
 
     .wrapper {
-        padding: 15px;
+        // padding: 15px;
     }
 
     .menuList {
@@ -7295,6 +7296,17 @@ body.touch .arrow {
         border-right: 7px solid transparent;
     }
 }
+footer{
+  .site-footer__copyright{
+    .grid__item.medium-up--one-half{
+      width: 100%;
+    }
+    .grid__item.medium-up--one-half.medium-up--text-right{
+      display:none;
+    }
+  }
+}
+
 
 
 
