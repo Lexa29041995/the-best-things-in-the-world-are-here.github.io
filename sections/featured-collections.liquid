@@ -30,7 +30,6 @@
 
   <div class="grid grid--no-gutters" id="collection-list-grid" data-number-rows="{{ number_rows }}">
     {% assign row_number = 1 %}
-
     {% for block in section.blocks %}
       {% if blocks_count == 5 and forloop.index > 3 %}
         {% assign grid_item_width = 'medium-up--one-half' %}
@@ -43,6 +42,7 @@
       {% assign featured_collection = collections[block.settings.collection] %}
       {% include 'collection-grid-item' with stretch_collection_image: section.settings.stretch_collection_image, height: height %}
     {% endfor %}
+    
   </div>
 
   {% if section.blocks.size == 0 %}

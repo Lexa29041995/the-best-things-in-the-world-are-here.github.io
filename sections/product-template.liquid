@@ -27,6 +27,15 @@
               <a href="{{ image | img_url: '1024x1024' }}"
                  class="js-modal-open-product-modal product__photo-wrapper product__photo-wrapper-{{ section.id }}"
                  style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
+                 {% assign days = 7 %}
+              {% assign period_time = days | times: 24 | times: 60 | times: 60 %}
+              {% assign date_now = 'now' | date:'%s' %}
+              {% assign date_finished = product.published_at | date:'%s' | plus: period_time | date:'%s' %}
+              {% if date_finished > date_now %}
+                <div class="product-badge new">
+                  <span>New</span>
+                </div>
+              {% endif %}
                 {% assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
                 <img class="lazyload{% unless image == featured_image %} lazypreload{% endunless %}"
                   src="{{ image | img_url: '150x150' }}"
@@ -36,15 +45,7 @@
                   data-sizes="auto"
                   alt="{{ image.alt | escape }}">
               </a>
-              {% if product.tags contains 'new' %}
-                <div class="product-badge new"><span>New</span></div>
-              {% endif %}
-              <!-- <div class="sorting-products">
-                {% assign products = collection.products | sort: 'title' %}
-                {% for product in products %}
-                  {{ product.title }}
-                {% endfor %}
-              </div> -->
+              
             </div>
           {%- endfor -%}
           <noscript>
@@ -160,6 +161,9 @@
               {%- endif -%}
               {%- if shop.shipping_policy.body != blank -%}
                 {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+              {%- endif -%}
+              {% if current_variant.inventory_quantity < 3 and current_variant.inventory_quantity > 0 %}
+                <span class="product_closeout"> Close Out</span>
               {%- endif -%}
             </div>
           {%- endif -%}

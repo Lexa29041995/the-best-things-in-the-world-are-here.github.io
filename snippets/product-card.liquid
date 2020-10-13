@@ -33,8 +33,15 @@
     </div>
   </div>
   <div class="product-card__info">
-    {% if product.tags contains 'new' %}
-      <div class="product-badge new"><span>New</span></div>
+    
+    {% assign days = 2 %}
+    {% assign period_time = days | times: 24 | times: 60 | times: 60 %}
+    {% assign date_now = 'now' | date:'%s' %}
+    {% assign date_finished = product.published_at | date:'%s' | plus: period_time | date:'%s' %}
+    {% if date_finished > date_now %}
+      <div class="product-badge new">
+        <span>New</span>
+      </div>
     {% endif %}
     {% if settings.product_vendor_enable %}
       <div class="product-card__brand">{{ product.vendor }}</div>

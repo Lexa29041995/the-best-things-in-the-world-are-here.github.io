@@ -11,6 +11,15 @@
 <div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
     <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
       <span class="visually-hidden">{{ product.title }}</span>
+                {% assign days = 10 %}
+                {% assign period_time = days | times: 24 | times: 60 | times: 60 %}
+                {% assign date_now = 'now' | date:'%s' %}
+                {% assign date_finished = product.published_at | date:'%s' | plus: period_time | date:'%s' %}
+                {% if date_finished > date_now %}
+                  <div class="product-badge new">
+                    <span>New</span>
+                  </div>
+                {% endif %}
     </a>
   
     {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
@@ -33,6 +42,7 @@
                 data-aspectratio="{{ preview_image.aspect_ratio }}"
                 data-sizes="auto"
                 data-image>
+                
         </div>
       </div>
     </div>

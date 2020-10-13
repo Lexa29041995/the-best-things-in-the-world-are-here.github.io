@@ -38,22 +38,26 @@
             </div>
           </a>
         </div>
+        {% paginate collection.products by 2 %}
         {% for product in collection.products limit: product_limit %}
           <div class="grid__item small--one-half medium-up--one-fifth{% if forloop.index == 1 %} collection__card--first{% endif %} {% if mobile_product_limit and forloop.index > 3 %}small--hide{% elsif rows == 1 or rows == 3 %}{% if forloop.index == product_index_hide_on_mobile %}small--hide{% endif %}{% endif %}">
             {% include 'product-card', product: product, collection: collection %}
           </div>
         {% endfor %}
+        {{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}
+        {%- endpaginate -%}
+        
       </div>
     {% else %}
       <div class="grid grid--no-gutters grid--uniform collection">
-        <div class="grid__item small--one-half medium-up--one-fifth">
+        <!-- <div class="grid__item small--one-half medium-up--one-fifth">
           <a href="{{ collection_object.url }}" class="collection-card">
             <div class="collection-card__meta">
               <p class="h1 collection-card__title">{{ 'homepage.onboarding.collection_title' | t }}</p>
               <p class="collection-card__subtext">{{ 'collections.general.view_all' | t }}</p>
             </div>
           </a>
-        </div>
+        </div> -->
         {% assign product_limit = rows | times: 5 | minus: 1 %}
         {% assign mobile_product_limit = true %}
         {% for i in (1..product_limit) %}
