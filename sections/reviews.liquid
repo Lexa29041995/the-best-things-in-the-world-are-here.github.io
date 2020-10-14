@@ -82,12 +82,19 @@
 
 {% style %}
   .reviews_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color:{{ section.settings.background_color }};
   }
   .reviews_section .reviews_section_content h5 {
     color: {{section.settings.text_color}};
     font-family:{{section.settings.heading_font}}, serif;
     font-size:{{section.settings.font_size}}px;
+  }
+  .reviews_section p{
+    text-align: center;
   }
 
 {% endstyle %}

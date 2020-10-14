@@ -1,7 +1,7 @@
 {%- if paginate.pages > 1 -%}
-<div class="custom_pagination">
     <nav role="navigation">
-      <ol class="pagination">
+      <div class="custom_pagination">
+      <ol class="pagination custom_style_pagination">
         {%- if paginate.previous-%}
           <li>
             <a href="{{ paginate.previous.url }}">
@@ -50,6 +50,6 @@
           </li>
         {%- endif -%}
       </ol>
+    </div>
     </nav>
-  </div>
   {%- endif -%}
