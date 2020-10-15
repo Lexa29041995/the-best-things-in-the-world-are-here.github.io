@@ -25,7 +25,7 @@
       {% endcase %}
 
       <div class="grid grid--no-gutters grid--uniform collection">
-        {% paginate collection.products by 2 %}
+        {% paginate collection.products by 3 %}
         {% for product in collection.products limit: product_limit %}
           <div class="grid__item small--one-half medium-up--one-fifth{% if forloop.index == 1 %} collection__card--first{% endif %} {% if mobile_product_limit and forloop.index > 3 %}small--hide{% elsif rows == 1 or rows == 3 %}{% if forloop.index == product_index_hide_on_mobile %}small--hide{% endif %}{% endif %}">
             {% include 'product-card', product: product, collection: collection %}
@@ -33,7 +33,7 @@
         {% endfor %}
       </div>
       <div class="my-custom-pagination">
-        {{ paginate | default_pagination: next: 'Older', previous: 'Newer' }}
+        {{ paginate | default_pagination: next: 'Next', previous: 'Previous' }}
       </div>
       
       {%- endpaginate -%}
